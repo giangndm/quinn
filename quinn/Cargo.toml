@@ -43,7 +43,7 @@ futures-io = { version = "0.3.19", optional = true }
 rustc-hash = "1.1"
 pin-project-lite = "0.2"
 proto = { package = "quinn-proto", path = "../quinn-proto", version = "0.11", default-features = false }
-rustls = { version = "0.21.0", default-features = false, features = ["quic"], optional = true }
+rustls = { version = "0.23", default-features = false, features = ["ring", "std"], optional = true }
 smol = { version = "2", optional = true }
 thiserror = "1.0.21"
 tracing = "0.1.10"
@@ -57,7 +57,7 @@ bencher = "0.1.5"
 directories-next = "2"
 rand = "0.8"
 rcgen = "0.12.0"
-rustls-pemfile = "1.0.0"
+rustls-pemfile = "2"
 clap = { version = "4", features = ["derive"] }
 tokio = { version = "1.28.1", features = ["rt", "rt-multi-thread", "time", "macros", "sync"] }
 tracing-subscriber = { version = "0.3.0", default-features = false, features = ["env-filter", "fmt", "ansi", "time", "local-time"] }
@@ -74,7 +74,6 @@ required-features = ["tls-rustls"]
 
 [[example]]
 name = "insecure_connection"
-required-features = ["rustls/dangerous_configuration"]
 
 [[example]]
 name = "single_socket"
